@@ -1,0 +1,42 @@
+<div *ngIf="todos.length; else noTodos">
+  <ul class="space-y-4">
+    <li
+      *ngFor="let todo of todos; let i = index"
+      class="flex justify-between items-center p-4 shadow-md rounded-lg gap-4"
+      [ngClass]="{
+        'bg-green-500': todo.completed, 
+        'bg-white': !todo.completed
+      }"
+    >
+      <span class="text-lg text-gray-800 flex-1">{{ todo.value | capitalizeFirst }}</span>
+
+      <div class="flex items-center gap-2">
+        <input #userInput
+          type="checkbox"
+          class="h-5 w-5"
+          [checked]="todo.completed"
+          (change)="onCheckboxChange(i)"
+        />
+
+        <!-- using template variables -->
+        <p class="font-medium" [ngClass]="{
+          'text-white': userInput.checked, 
+          'text-green-600': !userInput.checked
+        }">Completed</p>
+
+
+        <!-- Remove Button -->
+        <button
+          (click)="removeTodo(i)"
+          class="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 focus:outline-none"
+        >
+          Remove
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noTodos class="text-center text-gray-600">
+  <p>No Todos for Today Yet</p>
+</ng-template>
