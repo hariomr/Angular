@@ -1,3 +1,15 @@
-<app-todo-search></app-todo-search>
-<!-- <a routerLink="joke">Need a Joke ? Just click Me!!!</a> -->
+<nav>
+  <!-- normally -->
+  <a routerLink="home">Home</a>
+  <!-- using canActivate -->
+  <a routerLink="contact">Contact</a>
+  <!-- using canActiavtechild -->
+  <a routerLink="/dashboard/about">About</a>
+
+  <!-- using candeactivate -->
+   <a routerLink="form">Form</a>
+
+   <a routerLink="dashboard-lazy">Lazy-Loading</a>
+</nav>
+
 <router-outlet></router-outlet>

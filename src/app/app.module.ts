@@ -1,36 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyTodoComponent } from './components/my-todo/my-todo.component';
-import { CapitalizeFirstPipe } from './pipes/capitalize-first.pipe';
-import { TodoSearchComponent } from './components/todo-search/todo-search.component';
-import { StyleDirective } from './directives/style.directive';
-import { FooterComponent } from './components/footer/footer.component';
-import { JokeServiceService } from './services/joke-service.service';
-import { LinkComponent } from './components/link/link.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { FormsModule } from '@angular/forms';
+import { authGuard } from './guards/auth.guard';
+import { CommonModule } from '@angular/common';
+import { FormsComponent } from './components/forms/forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyTodoComponent,
-    CapitalizeFirstPipe,
-    TodoSearchComponent,
-    StyleDirective,
-    FooterComponent,
-    LinkComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactsComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    CommonModule,
+    AppRoutingModule,
+    CommonModule
   ],
-  providers: [JokeServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule{ }
+export class AppModule { }
