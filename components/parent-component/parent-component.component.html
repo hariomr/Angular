@@ -1,0 +1,15 @@
+<app-child-component>
+    <p>This paragraph is coming from the parent template</p>
+</app-child-component>
+
+
+<ng-container *ngIf="isLoggedIn; else notLoggedIn">
+    <p>Welcome back!</p>
+    <button (click)="logout()">Logout</button>
+ </ng-container>
+ 
+ <ng-template #notLoggedIn>
+    <p>Please log in to continue.</p>
+    <button (click)="login()">Login</button>
+ </ng-template>
+  
